@@ -6,12 +6,12 @@ namespace ChoreGenerator.Data;
 public class ChoreGeneratorContext : DbContext
 {
     public DbSet<Chore> Chores { get; set; }
+    public DbSet<Reward> Rewards { get; set; }
 
-    public ChoreGeneratorContext(DbContextOptions<ChoreGeneratorContext> options, DbSet<Chore> chores)
+    public ChoreGeneratorContext(DbContextOptions<ChoreGeneratorContext> options)
         : base(options)
     {
-        Chores = chores;
     }
 
-    public DbSet<Chore>? TableName { get; set; }
+    
 }
