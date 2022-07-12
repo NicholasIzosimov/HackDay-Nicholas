@@ -13,7 +13,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 builder.Services.AddDbContext<ChoreGeneratorContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("ChoreGeneratorContext")));
+    // options.UseSqlServer(builder.Configuration.GetConnectionString("ChoreGeneratorContext")));
+  options.UseInMemoryDatabase("HackDay"));
 
 
 builder.Services.AddEndpointsApiExplorer();
@@ -26,8 +27,8 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000"));
 }
+    app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
 
 app.UseHttpsRedirection();
 
